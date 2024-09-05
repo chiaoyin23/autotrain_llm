@@ -18,14 +18,12 @@ pipeline = transformers.pipeline(
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    # 獲取輸入文本和指令
-    input_text = request.json.get('input_text', '')  # 問題部分
-    instruction = "請用朋友語氣回答："  # 指令部分
+    
+    input_text = request.json.get('input_text', '')  
+    instruction = "請用朋友語氣回答："  
 
-    # 結合問題和指令，作為輸入
     full_input = f"{instruction}{input_text}"
 
-    # 使用 pipeline 生成文本
     sequences = pipeline(
         full_input,
         do_sample=True, 
