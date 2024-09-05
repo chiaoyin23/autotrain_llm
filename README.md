@@ -16,7 +16,7 @@ python convert_data.py
 pip install autotrain-advanced  
 ```
 
-### 4. 修改會出問題的檔案 
+### 4. 修改會出問題的檔案 如果不使用 gpu
 (路徑舉例： C:\Users\jenny\AppData\Local\Programs\Python\Python312\Lib\site-packages\autotrain)
 
 1. autotrain/cli/run_llm.py
@@ -54,7 +54,13 @@ python finetune.py
 存放在剛剛 finetune.py 設定的名稱 (my-autotrain-llm) 中
 
 ### 7. chat api
-本來的模型是直接從 hugging face 取得的
-autotrain的code在 vm 中： miniconda3/lib/python3.12/site-packages/autotrain
-getModel 在 autotrain/trainers/clm
 
+1. 啟動 flask app 測試
+```
+python chat_method.py
+```
+
+2. cmd
+```
+curl -X POST http://localhost:5000/chat -H "Content-Type: application/json" -d '{"input_text": "你今天下午有空嗎"}'
+```
