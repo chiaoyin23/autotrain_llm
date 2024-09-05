@@ -14,7 +14,7 @@ pipeline = transformers.pipeline(
     framework="pt"
 )
 
-input_text = '你等等有課嗎？ 請用朋友語氣回我：'
+input_text = '你等等有課嗎？ 請用朋友語氣回答我：'
 
 sequences = pipeline(
     input_text,
